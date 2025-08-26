@@ -1,356 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>MAKstudy - Legal Documentation</title>
-    <meta name="description" content="Privacy Policy and Terms of Service for MAKstudy, an unofficial educational app for MAKAUT students providing study materials and resources.">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAKstudy - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
 
-    <!-- Open Graph tags for social media sharing -->
-    <meta property="og:title" content="MAKstudy - Legal Documentation">
-    <meta property="og:description" content="Privacy Policy and Terms of Service for MAKstudy educational app">
-    <meta property="og:type" content="website">
+    header {
+      background: #222;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
 
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body {
-        font-family: 'Inter', system-ui, sans-serif;
-        background-color: #f9fafb;
-        color: #1e293b;
-        line-height: 1.6;
-      }
+    .hamburger {
+      font-size: 26px;
+      cursor: pointer;
+      user-select: none;
+    }
 
-      .container { max-width: 1024px; margin: 0 auto; padding: 0 1rem; }
+    /* Overlay (dim background) */
+    .overlay {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.6);
+      overflow-x: hidden;
+      transition: 0.4s;
+    }
 
-      /* Header */
-      header {
-        background: white;
-        border-bottom: 1px solid #e5e7eb;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        position: sticky; top: 0; z-index: 50;
-      }
-      .header-content {
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 1rem 0;
-      }
-      .logo {
-        font-size: 1.5rem; font-weight: bold;
-        color: #2563eb; text-decoration: none;
-      }
+    /* Sidebar content */
+    .overlay-content {
+      background: #fff;
+      width: 250px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -250px;
+      padding-top: 60px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.4s;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+    }
 
-      /* Top navigation (desktop) */
-      .top-nav {
-        display: flex; gap: 1rem; align-items: center;
-      }
-      .top-nav a {
-        color: #64748b; text-decoration: none; font-weight: 500;
-      }
-      .top-nav a i { margin-right: 0.5rem; color: #2563eb; }
+    .overlay a {
+      padding: 14px 24px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #333;
+      display: block;
+      transition: 0.3s;
+    }
 
-      /* Hamburger / menu button (mobile) */
-      .menu-toggle {
-        display: none;
-        width: 44px; height: 44px;
-        background: rgba(37,99,235,0.08);
-        border-radius: 8px;
-        display: inline-flex; align-items: center; justify-content: center;
-        cursor: pointer;
-      }
-      .menu-toggle .bars {
-        width: 18px; height: 14px; position: relative;
-      }
-      .menu-toggle .bars span {
-        position: absolute; left: 0; right: 0; height: 2px; background: #fff; border-radius: 2px;
-      }
-      .menu-toggle .bars span:nth-child(1){ top: 0; }
-      .menu-toggle .bars span:nth-child(2){ top: 6px; }
-      .menu-toggle .bars span:nth-child(3){ top: 12px; }
+    .overlay a:hover {
+      background: #f0f0f0;
+    }
 
-      /* Page content */
-      main { padding: 2rem 0; }
-      .content-card {
-        background: white; border-radius: 0.75rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        border: 1px solid #e5e7eb;
-        padding: 2rem; margin-bottom: 2rem;
-      }
-      .page-title { text-align: center; margin-bottom: 2rem; }
-      .page-title h1 {
-        font-size: 3rem; font-weight: bold;
-        color: #1e293b; margin-bottom: 0.5rem;
-      }
-      .divider {
-        width: 6rem; height: 0.25rem;
-        background-color: #2563eb; margin: 1rem auto;
-        border-radius: 9999px;
-      }
-      .welcome-content {
-        font-size: 1.25rem; text-align: center;
-        margin-bottom: 2rem; color: #64748b;
-      }
-      .welcome-content strong { color: #2563eb; }
-      .important-note {
-        background-color: #eff6ff;
-        border-left: 4px solid #2563eb;
-        padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0;
-        margin: 2rem 0;
-      }
+    .overlay .closebtn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+    }
 
-      .features-grid {
-        display: grid; grid-template-columns: 1fr 1fr;
-        gap: 1.5rem; margin-top: 3rem;
-      }
-      .feature-card {
-        background: #f9fafb; border-radius: 0.5rem;
-        padding: 1.5rem; border: 1px solid #e5e7eb;
-        text-align: center;
-      }
-      .feature-icon {
-        width: 4rem; height: 4rem; background-color: #2563eb;
-        border-radius: 50%; display: flex; align-items: center;
-        justify-content: center; margin: 0 auto 1rem;
-      }
-      .feature-icon i { color: white; font-size: 1.5rem; }
-      .feature-card h3 {
-        font-size: 1.25rem; font-weight: 600;
-        color: #1e293b; margin-bottom: 0.5rem;
-      }
-      .feature-card p { color: #64748b; }
+    main {
+      padding: 20px;
+    }
 
-      /* Footer */
-      footer {
-        background: white; border-top: 1px solid #e5e7eb;
-        margin-top: 4rem; padding: 3rem 0;
-      }
-      .footer-content {
-        display: grid; gap: 2rem; grid-template-columns: 1fr 1fr;
-      }
-      .footer-section h3 {
-        font-size: 1.25rem; font-weight: bold;
-        color: #1e293b; margin-bottom: 1rem;
-      }
-      .footer-section p { color: #64748b; margin-bottom: 1rem; }
-      .contact-info {
-        display: flex; align-items: center;
-        color: #64748b; margin-bottom: 0.75rem;
-      }
-      .contact-info i {
-        width: 1.25rem; margin-right: 0.75rem; color: #2563eb;
-      }
-      .contact-info a {
-        color: #64748b; text-decoration: none; transition: color 0.2s;
-      }
-      .contact-info a:hover { color: #2563eb; }
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
 
-      .footer-links { display:flex; gap: 1rem; flex-wrap:wrap; margin-bottom: 0.5rem; }
-      .footer-links a { color: #2563eb; text-decoration: none; font-weight: 500; }
-      .footer-bottom {
-        border-top: 1px solid #e5e7eb;
-        padding-top: 2rem; margin-top: 2rem;
-        text-align: center; color: #64748b; font-size: 0.875rem;
-      }
+    footer a {
+      color: #fff;
+      margin: 0 8px;
+      text-decoration: none;
+    }
 
-      /* Sidebar (left slide-out) */
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: -320px; /* hidden by default */
-        width: 320px;
-        max-width: 85%;
-        height: 100vh;
-        background: #111216;
-        color: #fff;
-        z-index: 1200;
-        transition: left 0.28s cubic-bezier(.2,.9,.2,1);
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-      }
-      .sidebar.open { left: 0; }
-      .sidebar .close-btn {
-        background: transparent; border: 0; color: #fff;
-        font-size: 28px; align-self: flex-start; cursor: pointer;
-      }
-      .sidebar h3 { margin-top: 8px; margin-bottom: 18px; font-weight: 600; color: #fff; }
-      .sidebar .links { display:flex; flex-direction: column; gap: 12px; margin-top: 8px; }
-      .sidebar .links a {
-        color: #e6edf3; text-decoration: none; font-size: 18px; font-weight: 500;
-        padding: 10px 6px; border-radius: 6px;
-      }
-      .sidebar .links a .fa { width: 24px; margin-right: 10px; color: #7dd3fc; }
-      .sidebar .links a:hover { background: rgba(255,255,255,0.04); color: #fff; }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
 
-      /* overlay behind sidebar */
-      .overlay {
-        position: fixed; inset: 0; background: rgba(0,0,0,0.55);
-        opacity: 0; visibility: hidden; transition: opacity 0.28s ease; z-index: 1100;
-      }
-      .overlay.active { opacity: 1; visibility: visible; }
+  <header>
+    <h1>MAKstudy</h1>
+    <span class="hamburger" onclick="openNav()">☰</span>
+  </header>
 
-      @media (max-width: 768px) {
-        nav.top-nav { display: none; }
-        .menu-toggle { display: inline-flex; }
-        .footer-content { grid-template-columns: 1fr; }
-        .features-grid { grid-template-columns: 1fr; }
-        .page-title h1 { font-size: 2rem; }
-      }
-      @media (min-width: 769px) {
-        /* For larger screens show top nav inline and hide small hamburger appearance style,
-           but still provide a small translucent square menu button on left if desired */
-        .menu-toggle { display: none; }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Sidebar & overlay -->
-    <div id="sidebar" class="sidebar" aria-hidden="true">
-      <button id="sidebar-close" class="close-btn" aria-label="Close menu">&times;</button>
-      <h3>Menu</h3>
-      <nav class="links" aria-label="Sidebar links">
-        <a href="index.html"><i class="fa fa-home fa-fw"></i> Home</a>
-        <a href="privacy.html"><i class="fa fa-shield-alt fa-fw"></i> Privacy Policy</a>
-        <a href="terms.html"><i class="fa fa-file-contract fa-fw"></i> Terms & Conditions</a>
-        <a href="#contact"><i class="fa fa-envelope fa-fw"></i> Contact</a>
-        <a href="privacy.html#account-deletion"><i class="fa fa-trash-alt fa-fw"></i> Account Data Deletion</a>
-      </nav>
+  <!-- Sidebar Overlay -->
+  <div id="myNav" class="overlay">
+    <div class="overlay-content" id="sidebar">
+      <span class="closebtn" onclick="closeNav()">&times;</span>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="#contact">Contact</a>
+      <a href="#delete">Data Deletion</a>
     </div>
-    <div id="overlay" class="overlay" tabindex="-1"></div>
+  </div>
 
-    <!-- Header -->
-    <header>
-      <div class="container">
-        <div class="header-content">
-          <div style="display:flex; gap:12px; align-items:center;">
-            <div id="menu-toggle" class="menu-toggle" aria-label="Open menu" role="button" title="Menu">
-              <div class="bars" style="position:relative;">
-                <span style="background:#111;"></span>
-                <span style="background:#111;"></span>
-                <span style="background:#111;"></span>
-              </div>
-            </div>
-            <a href="index.html" class="logo">MAKstudy</a>
-          </div>
+  <main>
+    <h2>Welcome to MAKstudy</h2>
+    <p>This is your home page. All content here will remain intact.</p>
+  </main>
 
-          <nav class="top-nav" aria-label="Top navigation">
-            <a href="index.html"><i class="fas fa-home"></i> Home</a>
-            <a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-            <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
-          </nav>
-        </div>
-      </div>
-    </header>
+  <footer>
+    <p>
+      <a href="privacy.html">Privacy Policy</a> | 
+      <a href="terms.html">Terms & Conditions</a> | 
+      <a href="#contact">Contact</a>
+    </p>
+    <p>&copy; 2025 MAKstudy. All rights reserved.</p>
+  </footer>
 
-    <!-- Main -->
-    <main>
-      <div class="container">
-        <div class="content-card">
-          <div class="page-title">
-            <h1>Welcome to MAKstudy</h1>
-            <div class="divider"></div>
-          </div>
+  <script>
+    function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+      document.getElementById("sidebar").style.right = "0";
+    }
 
-          <div class="welcome-content">
-            <p>
-              MAKstudy is an unofficial educational app designed for students of
-              <strong>Maulana Abul Kalam Azad University of Technology (MAKAUT)</strong>. 
-              It provides access to notes, previous year question papers (PYQs), lecture materials, and books to support engineering studies.
-            </p>
-          </div>
-
-          <div class="important-note">
-            <p>
-              <strong>Important Note:</strong> The app is developed by Anish Dandapat and is provided as a free service, 
-              not affiliated with, endorsed by, or officially connected to MAKAUT.
-            </p>
-          </div>
-
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-book-open"></i></div>
-              <h3>Study Materials</h3>
-              <p>Access comprehensive notes, PYQs, and lecture materials</p>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
-              <h3>For MAKAUT Students</h3>
-              <p>Specifically designed for engineering students at MAKAUT</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>MAKstudy</h3>
-            <p>
-              An unofficial educational app for MAKAUT students, providing access to study materials and resources.
-            </p>
-            <p style="font-size: 0.875rem;">
-              Not affiliated with, endorsed by, or officially connected to MAKAUT.
-            </p>
-          </div>
-          <div class="footer-section">
-            <h3>Contact Information</h3>
-            <div class="contact-info">
-              <i class="fas fa-user"></i>
-              <span>Developer: Anish Dandapat</span>
-            </div>
-            <div class="contact-info">
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:playconsoleanish@gmail.com">playconsoleanish@gmail.com</a>
-            </div>
-
-            <div style="margin-top:12px;" class="footer-links">
-              <a href="index.html">Home</a>
-              <a href="privacy.html">Privacy Policy</a>
-              <a href="terms.html">Terms & Conditions</a>
-              <a href="#contact">Contact</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>© 2025 MAKstudy. All rights reserved. | Last updated: August 27, 2025</p>
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      // Sidebar open/close logic
-      const menuToggle = document.getElementById('menu-toggle');
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('overlay');
-      const sidebarClose = document.getElementById('sidebar-close');
-
-      function openSidebar() {
-        sidebar.classList.add('open');
-        overlay.classList.add('active');
-        sidebar.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      }
-      function closeSidebar() {
-        sidebar.classList.remove('open');
-        overlay.classList.remove('active');
-        sidebar.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
-
-      menuToggle.addEventListener('click', openSidebar);
-      sidebarClose.addEventListener('click', closeSidebar);
-      overlay.addEventListener('click', closeSidebar);
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeSidebar();
-      });
-    </script>
-  </body>
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0";
+      document.getElementById("sidebar").style.right = "-250px";
+    }
+  </script>
+</body>
 </html>
+
