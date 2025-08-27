@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>MAKstudy - Legal Documentation</title>
+    <meta name="description" content="Privacy Policy and Terms of Service for MAKstudy, an unofficial educational app for MAKAUT students providing study materials and resources.">
+
+    <!-- Open Graph tags for social media sharing -->
+    <meta property="og:title" content="MAKstudy - Legal Documentation">
+    <meta property="og:description" content="Privacy Policy and Terms of Service for MAKstudy educational app">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background-color: #f9fafb;
+        color: #1e293b;
+        line-height: 1.6;
+      }
+
+      .container { max-width: 1024px; margin: 0 auto; padding: 0 1rem; }
+
+      header {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        position: sticky; top: 0; z-index: 50;
+      }
+      .header-content {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 1rem 0;
+      }
+      .logo {
+        font-size: 1.5rem; font-weight: bold;
+        color: #2563eb; text-decoration: none;
+      }
+      nav { display: flex; gap: 2rem; }
+      nav a {
+        color: #64748b; text-decoration: none; font-weight: 500;
+        transition: color 0.2s;
+      }
+      nav a:hover { color: #2563eb; }
+
+      main { padding: 2rem 0; }
+      .content-card {
+        background: white; border-radius: 0.75rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e5e7eb;
+        padding: 2rem; margin-bottom: 2rem;
+      }
+      .page-title { text-align: center; margin-bottom: 2rem; }
+      .page-title h1 {
+        font-size: 3rem; font-weight: bold;
+        color: #1e293b; margin-bottom: 0.5rem;
+      }
+      .divider {
+        width: 6rem; height: 0.25rem;
+        background-color: #2563eb; margin: 1rem auto;
+        border-radius: 9999px;
+      }
+      .welcome-content {
+        font-size: 1.25rem; text-align: center;
+        margin-bottom: 2rem; color: #64748b;
+      }
+      .welcome-content strong { color: #2563eb; }
+      .important-note {
+        background-color: #eff6ff;
+        border-left: 4px solid #2563eb;
+        padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0;
+        margin: 2rem 0;
+      }
+
+      .features-grid {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 1.5rem; margin-top: 3rem;
+      }
+      .feature-card {
+        background: #f9fafb; border-radius: 0.5rem;
+        padding: 1.5rem; border: 1px solid #e5e7eb;
+        text-align: center;
+      }
+      .feature-icon {
+        width: 4rem; height: 4rem; background-color: #2563eb;
+        border-radius: 50%; display: flex; align-items: center;
+        justify-content: center; margin: 0 auto 1rem;
+      }
+      .feature-icon i { color: white; font-size: 1.5rem; }
+      .feature-card h3 {
+        font-size: 1.25rem; font-weight: 600;
+        color: #1e293b; margin-bottom: 0.5rem;
+      }
+      .feature-card p { color: #64748b; }
+
+      footer {
+        background: white; border-top: 1px solid #e5e7eb;
+        margin-top: 4rem; padding: 3rem 0;
+      }
+      .footer-content {
+        display: grid; gap: 2rem; grid-template-columns: 1fr 1fr;
+      }
+      .footer-section h3 {
+        font-size: 1.25rem; font-weight: bold;
+        color: #1e293b; margin-bottom: 1rem;
+      }
+      .footer-section p { color: #64748b; margin-bottom: 1rem; }
+      .contact-info {
+        display: flex; align-items: center;
+        color: #64748b; margin-bottom: 0.75rem;
+      }
+      .contact-info i {
+        width: 1.25rem; margin-right: 0.75rem; color: #2563eb;
+      }
+      .contact-info a {
+        color: #64748b; text-decoration: none; transition: color 0.2s;
+      }
+      .contact-info a:hover { color: #2563eb; }
+
+      .footer-bottom {
+        border-top: 1px solid #e5e7eb;
+        padding-top: 2rem; margin-top: 2rem;
+        text-align: center; color: #64748b; font-size: 0.875rem;
+      }
+
+      @media (max-width: 768px) {
+        nav { display: none; }
+        .footer-content { grid-template-columns: 1fr; }
+        .features-grid { grid-template-columns: 1fr; }
+        .page-title h1 { font-size: 2rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">MAKstudy</a>
+          <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
+            <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <div class="container">
+        <div class="content-card">
+          <div class="page-title">
+            <h1>Welcome to MAKstudy</h1>
+            <div class="divider"></div>
+          </div>
+
+          <div class="welcome-content">
+            <p>
+              MAKstudy is an unofficial educational app designed for students of
+              <strong>Maulana Abul Kalam Azad University of Technology (MAKAUT)</strong>. 
+              It provides access to notes, previous year question papers (PYQs), lecture materials, and books to support engineering studies.
+            </p>
+          </div>
+
+          <div class="important-note">
+            <p>
+              <strong>Important Note:</strong> The app is developed by Anish Dandapat and is provided as a free service, 
+              not affiliated with, endorsed by, or officially connected to MAKAUT.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+              <h3>Study Materials</h3>
+              <p>Access comprehensive notes, PYQs, and lecture materials</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+              <h3>For MAKAUT Students</h3>
+              <p>Specifically designed for engineering students at MAKAUT</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>MAKstudy</h3>
+            <p>
+              An unofficial educational app for MAKAUT students, providing access to study materials and resources.
+            </p>
+            <p style="font-size: 0.875rem;">
+              Not affiliated with, endorsed by, or officially connected to MAKAUT.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Contact Information</h3>
+            <div class="contact-info">
+              <i class="fas fa-user"></i>
+              <span>Developer: Anish Dandapat</span>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:playconsoleanish@gmail.com">playconsoleanish@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2025 MAKstudy. All rights reserved. | Last updated: August 25, 2025</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
