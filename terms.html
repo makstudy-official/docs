@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
       * {
@@ -27,51 +29,153 @@
         background-color: #f9fafb;
         color: #1e293b;
         line-height: 1.6;
+        min-height: 100vh;
       }
       
-      .container {
-        max-width: 1024px;
-        margin: 0 auto;
-        padding: 0 1rem;
-      }
-      
-      header {
+      .app-header {
         background: white;
+        padding: 1rem;
         border-bottom: 1px solid #e5e7eb;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 50;
-      }
-      
-      .header-content {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .app-logo {
+        font-size: 2rem;
+        font-weight: bold;
+        display: flex;
+        align-items: baseline;
+      }
+      
+      .logo-mak {
+        color: #05295e;
+        font-family: 'League Spartan', sans-serif;
+        font-weight: 700;
+      }
+      
+      .logo-study {
+        color: #ff7a29;
+        font-family: 'Belgrano', serif;
+        font-weight: 400;
+      }
+      
+      .hamburger-menu {
+        font-size: 1.5rem;
+        color: #64748b;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.2s;
+      }
+      
+      .hamburger-menu:hover {
+        color: #05295e;
+      }
+      
+      .sidebar {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      
+      .sidebar.active {
+        max-height: 300px;
+      }
+      
+      .sidebar-nav {
         padding: 1rem 0;
       }
       
-      .logo {
+      .sidebar-nav a {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        color: #64748b;
+        text-decoration: none;
+        transition: all 0.2s;
+        border-left: 3px solid transparent;
+      }
+      
+      .sidebar-nav a:hover {
+        background-color: #f8fafc;
+        color: #2563eb;
+        border-left-color: #2563eb;
+      }
+      
+      .sidebar-nav a.active {
+        background-color: #eff6ff;
+        color: #2563eb;
+        border-left-color: #2563eb;
+        font-weight: 600;
+      }
+      
+      .sidebar-nav a i {
+        margin-right: 0.75rem;
+        width: 1.25rem;
+      }
+      
+      .main-content {
+        position: relative;
+      }
+      
+      .mobile-header {
+        display: none;
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .mobile-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .mobile-logo {
         font-size: 1.5rem;
         font-weight: bold;
         color: #2563eb;
         text-decoration: none;
       }
       
-      nav {
-        display: flex;
-        gap: 2rem;
-      }
-      
-      nav a {
+      .menu-toggle {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
         color: #64748b;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s;
+        cursor: pointer;
       }
       
-      nav a:hover {
-        color: #2563eb;
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 999;
+      }
+      
+      .container {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 0 1rem;
       }
       
       main {
@@ -229,8 +333,8 @@
       }
       
       @media (max-width: 768px) {
-        nav {
-          display: none;
+        .sidebar-overlay.active {
+          display: block;
         }
         
         .footer-content {
@@ -242,20 +346,60 @@
         }
       }
     </style>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+      }
+      
+      function closeSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+      }
+      
+      // Auto close sidebar when clicking on content
+      document.addEventListener('DOMContentLoaded', function() {
+        const mainContent = document.querySelector('.main-content');
+        if (mainContent) {
+          mainContent.addEventListener('click', closeSidebar);
+        }
+      });
+    </script>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="header-content">
-          <a href="index.html" class="logo">MAKstudy</a>
-          <nav>
-            <a href="index.html"><i class="fas fa-home"></i> Home</a>
-            <a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-            <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
-          </nav>
-        </div>
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+    
+    <div class="app-header">
+      <div class="app-logo">
+        <span class="logo-mak">MAK</span><span class="logo-study">study</span>
       </div>
-    </header>
+      <div class="hamburger-menu" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </div>
+      
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <a href="index.html">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+          <a href="terms.html" class="active">
+            <i class="fas fa-file-contract"></i>
+            Terms & Conditions
+          </a>
+          <a href="privacy.html">
+            <i class="fas fa-shield-alt"></i>
+            Privacy Policy
+          </a>
+        </nav>
+      </aside>
+    </div>
+    
+    <main class="main-content">
 
     <main>
       <div class="container">
@@ -357,8 +501,7 @@
           </div>
         </div>
       </div>
-    </main>
-
+    
     <footer>
       <div class="container">
         <div class="footer-content">
@@ -392,5 +535,6 @@
         </div>
       </div>
     </footer>
+    </main>
   </body>
 </html>

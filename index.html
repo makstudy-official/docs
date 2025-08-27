@@ -5,154 +5,403 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>MAKstudy - Legal Documentation</title>
     <meta name="description" content="Privacy Policy and Terms of Service for MAKstudy, an unofficial educational app for MAKAUT students providing study materials and resources.">
-
+    
     <!-- Open Graph tags for social media sharing -->
     <meta property="og:title" content="MAKstudy - Legal Documentation">
     <meta property="og:description" content="Privacy Policy and Terms of Service for MAKstudy educational app">
     <meta property="og:type" content="website">
-
-    <!-- Fonts & Icons -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
     <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
       body {
         font-family: 'Inter', system-ui, sans-serif;
         background-color: #f9fafb;
         color: #1e293b;
         line-height: 1.6;
+        min-height: 100vh;
       }
-
-      .container { max-width: 1024px; margin: 0 auto; padding: 0 1rem; }
-
-      header {
+      
+      .app-header {
         background: white;
+        padding: 1rem;
         border-bottom: 1px solid #e5e7eb;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        position: sticky; top: 0; z-index: 50;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
       }
-      .header-content {
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 1rem 0;
+      
+      .app-logo {
+        font-size: 2rem;
+        font-weight: bold;
+        display: flex;
+        align-items: baseline;
       }
-      .logo {
-        font-size: 1.5rem; font-weight: bold;
-        color: #2563eb; text-decoration: none;
+      
+      .logo-mak {
+        color: #05295e;
+        font-family: 'League Spartan', sans-serif;
+        font-weight: 700;
       }
-      nav { display: flex; gap: 2rem; }
-      nav a {
-        color: #64748b; text-decoration: none; font-weight: 500;
+      
+      .logo-study {
+        color: #ff7a29;
+        font-family: 'Belgrano', serif;
+        font-weight: 400;
+      }
+      
+      .hamburger-menu {
+        font-size: 1.5rem;
+        color: #64748b;
+        cursor: pointer;
+        padding: 0.5rem;
         transition: color 0.2s;
       }
-      nav a:hover { color: #2563eb; }
-
-      main { padding: 2rem 0; }
+      
+      .hamburger-menu:hover {
+        color: #05295e;
+      }
+      
+      .sidebar {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      
+      .sidebar.active {
+        max-height: 300px;
+      }
+      
+      .sidebar-nav {
+        padding: 1rem 0;
+      }
+      
+      .sidebar-nav a {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        color: #64748b;
+        text-decoration: none;
+        transition: all 0.2s;
+        border-left: 3px solid transparent;
+      }
+      
+      .sidebar-nav a:hover {
+        background-color: #f8fafc;
+        color: #2563eb;
+        border-left-color: #2563eb;
+      }
+      
+      .sidebar-nav a.active {
+        background-color: #eff6ff;
+        color: #2563eb;
+        border-left-color: #2563eb;
+        font-weight: 600;
+      }
+      
+      .sidebar-nav a i {
+        margin-right: 0.75rem;
+        width: 1.25rem;
+      }
+      
+      .main-content {
+        position: relative;
+      }
+      
+      .mobile-header {
+        display: none;
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .mobile-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .mobile-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #2563eb;
+        text-decoration: none;
+      }
+      
+      .menu-toggle {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: #64748b;
+        cursor: pointer;
+      }
+      
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 999;
+      }
+      
+      .container {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      
+      main {
+        padding: 2rem 0;
+      }
+      
       .content-card {
-        background: white; border-radius: 0.75rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        background: white;
+        border-radius: 0.75rem;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
         border: 1px solid #e5e7eb;
-        padding: 2rem; margin-bottom: 2rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
       }
-      .page-title { text-align: center; margin-bottom: 2rem; }
+      
+      .page-title {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
       .page-title h1 {
-        font-size: 3rem; font-weight: bold;
-        color: #1e293b; margin-bottom: 0.5rem;
+        font-size: 3rem;
+        font-weight: bold;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
       }
+      
       .divider {
-        width: 6rem; height: 0.25rem;
-        background-color: #2563eb; margin: 1rem auto;
+        width: 6rem;
+        height: 0.25rem;
+        background-color: #2563eb;
+        margin: 1rem auto;
         border-radius: 9999px;
       }
+      
       .welcome-content {
-        font-size: 1.25rem; text-align: center;
-        margin-bottom: 2rem; color: #64748b;
+        font-size: 1.25rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #64748b;
       }
-      .welcome-content strong { color: #2563eb; }
+      
+      .welcome-content strong {
+        color: #2563eb;
+      }
+      
       .important-note {
         background-color: #eff6ff;
         border-left: 4px solid #2563eb;
-        padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0;
+        padding: 1.5rem;
+        border-radius: 0 0.5rem 0.5rem 0;
         margin: 2rem 0;
       }
-
+      
       .features-grid {
-        display: grid; grid-template-columns: 1fr 1fr;
-        gap: 1.5rem; margin-top: 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-top: 3rem;
       }
+      
       .feature-card {
-        background: #f9fafb; border-radius: 0.5rem;
-        padding: 1.5rem; border: 1px solid #e5e7eb;
+        background: #f9fafb;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        border: 1px solid #e5e7eb;
         text-align: center;
       }
+      
       .feature-icon {
-        width: 4rem; height: 4rem; background-color: #2563eb;
-        border-radius: 50%; display: flex; align-items: center;
-        justify-content: center; margin: 0 auto 1rem;
+        width: 4rem;
+        height: 4rem;
+        background-color: #2563eb;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
       }
-      .feature-icon i { color: white; font-size: 1.5rem; }
+      
+      .feature-icon i {
+        color: white;
+        font-size: 1.5rem;
+      }
+      
       .feature-card h3 {
-        font-size: 1.25rem; font-weight: 600;
-        color: #1e293b; margin-bottom: 0.5rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
       }
-      .feature-card p { color: #64748b; }
-
+      
+      .feature-card p {
+        color: #64748b;
+      }
+      
       footer {
-        background: white; border-top: 1px solid #e5e7eb;
-        margin-top: 4rem; padding: 3rem 0;
+        background: white;
+        border-top: 1px solid #e5e7eb;
+        margin-top: 4rem;
+        padding: 3rem 0;
       }
+      
       .footer-content {
-        display: grid; gap: 2rem; grid-template-columns: 1fr 1fr;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
       }
+      
       .footer-section h3 {
-        font-size: 1.25rem; font-weight: bold;
-        color: #1e293b; margin-bottom: 1rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #1e293b;
+        margin-bottom: 1rem;
       }
-      .footer-section p { color: #64748b; margin-bottom: 1rem; }
+      
+      .footer-section p {
+        color: #64748b;
+        margin-bottom: 1rem;
+      }
+      
       .contact-info {
-        display: flex; align-items: center;
-        color: #64748b; margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        color: #64748b;
+        margin-bottom: 0.75rem;
       }
+      
       .contact-info i {
-        width: 1.25rem; margin-right: 0.75rem; color: #2563eb;
+        width: 1.25rem;
+        margin-right: 0.75rem;
+        color: #2563eb;
       }
+      
       .contact-info a {
-        color: #64748b; text-decoration: none; transition: color 0.2s;
+        color: #64748b;
+        text-decoration: none;
+        transition: color 0.2s;
       }
-      .contact-info a:hover { color: #2563eb; }
-
+      
+      .contact-info a:hover {
+        color: #2563eb;
+      }
+      
       .footer-bottom {
         border-top: 1px solid #e5e7eb;
-        padding-top: 2rem; margin-top: 2rem;
-        text-align: center; color: #64748b; font-size: 0.875rem;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        text-align: center;
+        color: #64748b;
+        font-size: 0.875rem;
       }
-
+      
       @media (max-width: 768px) {
-        nav { display: none; }
-        .footer-content { grid-template-columns: 1fr; }
-        .features-grid { grid-template-columns: 1fr; }
-        .page-title h1 { font-size: 2rem; }
+        .sidebar-overlay.active {
+          display: block;
+        }
+        
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+        
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .page-title h1 {
+          font-size: 2rem;
+        }
       }
     </style>
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+      }
+      
+      function closeSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+      }
+      
+      // Auto close sidebar when clicking on content
+      document.addEventListener('DOMContentLoaded', function() {
+        const mainContent = document.querySelector('.main-content');
+        if (mainContent) {
+          mainContent.addEventListener('click', closeSidebar);
+        }
+      });
+    </script>
   </head>
   <body>
-    <!-- Header -->
-    <header>
-      <div class="container">
-        <div class="header-content">
-          <a href="index.html" class="logo">MAKstudy</a>
-          <nav>
-            <a href="index.html"><i class="fas fa-home"></i> Home</a>
-            <a href="terms.html"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
-            <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
-          </nav>
-        </div>
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+    
+    <div class="app-header">
+      <div class="app-logo">
+        <span class="logo-mak">MAK</span><span class="logo-study">study</span>
       </div>
-    </header>
+      <div class="hamburger-menu" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </div>
+      
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <a href="index.html" class="active">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+          <a href="terms.html">
+            <i class="fas fa-file-contract"></i>
+            Terms & Conditions
+          </a>
+          <a href="privacy.html">
+            <i class="fas fa-shield-alt"></i>
+            Privacy Policy
+          </a>
+        </nav>
+      </aside>
+    </div>
+    
+    <main class="main-content">
 
-    <!-- Main -->
     <main>
       <div class="container">
         <div class="content-card">
@@ -160,7 +409,7 @@
             <h1>Welcome to MAKstudy</h1>
             <div class="divider"></div>
           </div>
-
+          
           <div class="welcome-content">
             <p>
               MAKstudy is an unofficial educational app designed for students of
@@ -168,7 +417,7 @@
               It provides access to notes, previous year question papers (PYQs), lecture materials, and books to support engineering studies.
             </p>
           </div>
-
+          
           <div class="important-note">
             <p>
               <strong>Important Note:</strong> The app is developed by Anish Dandapat and is provided as a free service, 
@@ -178,21 +427,24 @@
 
           <div class="features-grid">
             <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+              <div class="feature-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
               <h3>Study Materials</h3>
               <p>Access comprehensive notes, PYQs, and lecture materials</p>
             </div>
+            
             <div class="feature-card">
-              <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+              <div class="feature-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
               <h3>For MAKAUT Students</h3>
               <p>Specifically designed for engineering students at MAKAUT</p>
             </div>
           </div>
         </div>
       </div>
-    </main>
-
-    <!-- Footer -->
+    
     <footer>
       <div class="container">
         <div class="footer-content">
@@ -205,6 +457,7 @@
               Not affiliated with, endorsed by, or officially connected to MAKAUT.
             </p>
           </div>
+          
           <div class="footer-section">
             <h3>Contact Information</h3>
             <div class="contact-info">
@@ -217,11 +470,14 @@
             </div>
           </div>
         </div>
-
+        
         <div class="footer-bottom">
-          <p>© 2025 MAKstudy. All rights reserved. | Last updated: August 25, 2025</p>
+          <p>
+            © 2025 MAKstudy. All rights reserved. | Last updated: August 25, 2025
+          </p>
         </div>
       </div>
     </footer>
+    </main>
   </body>
 </html>
