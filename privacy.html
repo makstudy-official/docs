@@ -161,16 +161,6 @@
         cursor: pointer;
       }
       
-      .sidebar-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.3);
-        z-index: 999;
-      }
       
       .container {
         max-width: 1024px;
@@ -353,16 +343,12 @@
     <script>
       function toggleSidebar() {
         const sidebar = document.querySelector('.sidebar');
-        const overlay = document.querySelector('.sidebar-overlay');
         sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
       }
       
       function closeSidebar() {
         const sidebar = document.querySelector('.sidebar');
-        const overlay = document.querySelector('.sidebar-overlay');
         sidebar.classList.remove('active');
-        overlay.classList.remove('active');
       }
       
       // Auto close sidebar when clicking on content
@@ -375,7 +361,6 @@
     </script>
   </head>
   <body>
-    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
     
     <div class="app-header">
       <div class="app-logo">
