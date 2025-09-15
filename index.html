@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>MAKstudy-docs</title>
+    <title>MAKstudy</title>
     <meta name="description" content="Privacy Policy and Terms of Service for MAKstudy, an unofficial educational app for MAKAUT students providing study materials and resources.">
     
     <!-- Open Graph tags for social media sharing -->
@@ -18,11 +18,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
         <!-- Basic favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/logo.png">
 
     <!-- Optional: Apple devices -->
-    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="apple-touch-icon" href="/logo.png">
 
     <style>
       * {
@@ -199,6 +199,13 @@
         margin-bottom: 0.5rem;
       }
       
+      .headMAK {
+        color: #05295e;
+      }
+
+      .headSTUDY {
+        color: #ff7a29;
+      }
       .divider {
         width: 6rem;
         height: 0.25rem;
@@ -379,15 +386,15 @@
       
       <aside class="sidebar">
         <nav class="sidebar-nav">
-          <a href="index.html" class="active">
+          <a href="/index.html" class="active">
             <i class="fas fa-home"></i>
             Home
           </a>
-          <a href="terms.html">
+          <a href="/terms/index.html">
             <i class="fas fa-file-contract"></i>
             Terms & Conditions
           </a>
-          <a href="privacy.html">
+          <a href="/privacy/index.html">
             <i class="fas fa-shield-alt"></i>
             Privacy Policy
           </a>
@@ -399,7 +406,7 @@
       <div class="container">
         <div class="content-card">
           <div class="page-title">
-            <h1>Welcome to MAKstudy</h1>
+            <h1>Welcome to <span class="headMAK">MAK</span><span class="headSTUDY">study</span></h1>
             <div class="divider"></div>
           </div>
           
@@ -482,7 +489,11 @@
         
         <div class="footer-bottom">
           <p>
-            © 2025 <span class="bold-text">MAKstudy</span>. All rights reserved. | Last updated: August 25, 2025
+            © 2025 <strong>MAKstudy</strong>. All rights reserved.  
+            This document is provided for informational purposes only and does not create
+            any legal obligations beyond those set forth in the Terms of Service.  
+            <br>
+            <em>Last updated: September 16, 2025</em>
           </p>
         </div>
       </div>
