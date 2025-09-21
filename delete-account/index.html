@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Your Account - MAKstudy | Account Deletion Guide</title>
+    <meta name="description" content="Learn how to delete your MAKstudy account permanently. Step-by-step guide for account deletion, data removal, and privacy protection.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Delete Your Account - MAKstudy">
+    <meta property="og:description" content="Complete guide to permanently delete your MAKstudy account and remove your data.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MAKstudy">
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
+    
+    <!-- Basic favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/logo.png">
+
+    <!-- Optional: Apple devices -->
+    <link rel="apple-touch-icon" href="/logo.png">
+
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background-color: #f9fafb;
+        color: #1e293b;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+      
+      .app-header {
+        background: white;
+        padding: 1rem;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .app-logo {
+        font-size: 2rem;
+        font-weight: bold;
+        display: flex;
+        align-items: baseline;
+      }
+      
+      .logo-mak {
+        color: #05295e;
+        font-family: 'League Spartan', sans-serif;
+        font-weight: 700;
+      }
+      
+      .logo-study {
+        color: #ff7a29;
+        font-family: 'Belgrano', serif;
+        font-weight: 400;
+      }
+      
+      .hamburger-menu {
+        font-size: 1.5rem;
+        color: #64748b;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.2s;
+      }
+      
+      .hamburger-menu:hover {
+        color: #05295e;
+      }
+      
+      .sidebar {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      
+      .sidebar.active {
+        max-height: 400px;
+      }
+      
+      .sidebar-nav {
+        padding: 1rem 0;
+      }
+      
+      .sidebar-nav a {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        color: #64748b;
+        text-decoration: none;
+        transition: all 0.2s;
+        border-left: 3px solid transparent;
+      }
+      
+      .sidebar-nav a:hover {
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-left-color: #05295e;
+      }
+      
+      .sidebar-nav a.active {
+        background-color: #eff6ff;
+        color: #05295e;
+        border-left-color: #05295e;
+        font-weight: 500;
+      }
+      
+      .sidebar-nav a i {
+        margin-right: 0.75rem;
+        width: 1.25rem;
+        text-align: center;
+      }
+      
+      .main-content {
+        position: relative;
+      }
+      
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+      
+      .page-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 3rem 0;
+        background: linear-gradient(135deg, #05295e 0%, #0369a1 100%);
+        color: white;
+      }
+      
+      .page-title h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      .page-title p {
+        font-size: 1.125rem;
+        color: #cbd5e1;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      .content-section {
+        background: white;
+        margin-bottom: 2rem;
+        padding: 2rem;
+        border-radius: 1rem;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      
+      .content-section h2 {
+        color: #05295e;
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid #f1f5f9;
+        display: flex;
+        align-items: center;
+      }
+      
+      .content-section h2 i {
+        margin-right: 0.75rem;
+        color: #ff7a29;
+      }
+      
+      .content-section h3 {
+        color: #0f172a;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+      }
+      
+      .content-section p {
+        margin-bottom: 1.5rem;
+        color: #475569;
+        font-size: 1rem;
+      }
+      
+      .content-section ul {
+        margin-bottom: 1.5rem;
+        padding-left: 0;
+      }
+      
+      .content-section li {
+        list-style: none;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 0.5rem;
+        border-left: 4px solid #05295e;
+        color: #334155;
+        position: relative;
+      }
+      
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        background: #05295e;
+        color: white;
+        border-radius: 50%;
+        font-weight: bold;
+        margin-right: 0.75rem;
+        font-size: 0.875rem;
+      }
+      
+      .warning-box {
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-left: 4px solid #ef4444;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin: 2rem 0;
+      }
+      
+      .warning-box h3 {
+        color: #dc2626;
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+      }
+      
+      .warning-box h3 i {
+        margin-right: 0.5rem;
+      }
+      
+      .warning-box p {
+        color: #7f1d1d;
+        margin-bottom: 0;
+      }
+      
+      .info-box {
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        border-left: 4px solid #3b82f6;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin: 2rem 0;
+      }
+      
+      .info-box h3 {
+        color: #1d4ed8;
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+      }
+      
+      .info-box h3 i {
+        margin-right: 0.5rem;
+      }
+      
+      .info-box p {
+        color: #1e3a8a;
+        margin-bottom: 0;
+      }
+      
+      .contact-info {
+        background: #f0fdf4;
+        border: 1px solid #bbf7d0;
+        border-left: 4px solid #22c55e;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin: 2rem 0;
+        text-align: center;
+      }
+      
+      .contact-info h3 {
+        color: #15803d;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .contact-info h3 i {
+        margin-right: 0.5rem;
+      }
+      
+      .contact-info p {
+        color: #166534;
+        margin-bottom: 1rem;
+      }
+      
+      .contact-email {
+        display: inline-flex;
+        align-items: center;
+        background: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        color: #05295e;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s;
+        border: 1px solid #d1d5db;
+      }
+      
+      .contact-email:hover {
+        background: #05295e;
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(5, 41, 94, 0.2);
+      }
+      
+      .contact-email i {
+        margin-right: 0.5rem;
+      }
+      
+      .footer {
+        background: #0f172a;
+        color: #94a3b8;
+        text-align: center;
+        padding: 3rem 1rem;
+        margin-top: 4rem;
+      }
+      
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+      
+      .footer-section h3 {
+        color: #f1f5f9;
+        margin-bottom: 1rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+      
+      .footer-section p,
+      .footer-section a {
+        color: #94a3b8;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+        display: block;
+        transition: color 0.2s;
+      }
+      
+      .footer-section a:hover {
+        color: #ff7a29;
+      }
+      
+      .footer-bottom {
+        border-top: 1px solid #374151;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        text-align: center;
+      }
+      
+      .footer-bottom p {
+        margin-bottom: 0.5rem;
+      }
+      
+      @media (max-width: 768px) {
+        .page-title h1 {
+          font-size: 2rem;
+        }
+        
+        .container {
+          padding: 1rem;
+        }
+        
+        .content-section {
+          padding: 1.5rem;
+        }
+        
+        .content-section h2 {
+          font-size: 1.5rem;
+        }
+        
+        .step-number {
+          width: 1.75rem;
+          height: 1.75rem;
+          font-size: 0.75rem;
+        }
+        
+        .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="app-header">
+      <div class="app-logo">
+        <span class="logo-mak">MAK</span><span class="logo-study">study</span>
+      </div>
+      <div class="hamburger-menu" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </div>
+      
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <a href="/" class="active">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+          <a href="/terms/">
+            <i class="fas fa-file-contract"></i>
+            Terms & Conditions
+          </a>
+          <a href="/privacy/">
+            <i class="fas fa-shield-alt"></i>
+            Privacy Policy
+          </a>
+          <a href="/delete-account/">
+            <i class="fa-solid fa-trash"></i>
+            Delete-account
+          </a>
+          <a href="/about/">
+            <i class="fas fa-user"></i>
+            About Developer
+          </a>
+        </nav>
+      </aside>
+    </div>
+
+    <main class="main-content">
+      <!-- Page Title -->
+      <section class="page-title">
+        <div class="container">
+          <h1>Delete Your Account</h1>
+          <p>We respect your privacy and give you full control over your account data. If you decide to leave MAKstudy, you can permanently delete your account and all associated data.</p>
+        </div>
+      </section>
+
+      <div class="container">
+        <!-- Introduction Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-info-circle"></i>Your Privacy & Control</h2>
+          <p>At MAKstudy, we believe you should have complete control over your personal information. We understand that circumstances change, and you may no longer wish to use our educational platform.</p>
+          <p>This page provides you with clear instructions on how to permanently delete your account and explains exactly what happens to your data during this process. We've designed our account deletion process to be straightforward, secure, and irreversible to ensure your privacy is protected.</p>
+          <p>Before proceeding with account deletion, please note that this action cannot be undone. Once your account is deleted, all your data will be permanently removed from our systems, and you will lose access to any saved content, progress, or preferences.</p>
+        </section>
+
+        <!-- How to Delete Account -->
+        <section class="content-section">
+          <h2><i class="fas fa-trash-alt"></i>How to Delete Your Account</h2>
+          <p>Follow these simple steps to delete your MAKstudy account directly from the mobile application:</p>
+          
+          <ul>
+            <li>
+              <span class="step-number">1</span>
+              <strong>Open the MAKstudy App:</strong> Launch the MAKstudy application on your mobile device and ensure you are logged into your account.
+            </li>
+            <li>
+              <span class="step-number">2</span>
+              <strong>Navigate to Settings:</strong> Tap on the menu icon (usually three lines or your profile picture) and select "Settings" from the menu options.
+            </li>
+            <li>
+              <span class="step-number">3</span>
+              <strong>Access Account Settings:</strong> In the Settings menu, look for and tap on "Account" or "Account Settings" to view your account management options.
+            </li>
+            <li>
+              <span class="step-number">4</span>
+              <strong>Find Delete Account Option:</strong> Scroll down to find the "Delete Account" option, usually located at the bottom of the account settings page.
+            </li>
+            <li>
+              <span class="step-number">5</span>
+              <strong>Initiate Deletion Process:</strong> Tap on "Delete Account" to begin the account deletion process. You will be presented with information about what will be deleted.
+            </li>
+            <li>
+              <span class="step-number">6</span>
+              <strong>Password Verification:</strong> For security purposes, you will be prompted to re-enter your current password to verify your identity before proceeding.
+            </li>
+            <li>
+              <span class="step-number">7</span>
+              <strong>Final Confirmation:</strong> After password verification, confirm your decision to delete the account. Your account will be permanently deleted immediately.
+            </li>
+          </ul>
+
+          <div class="info-box">
+            <h3><i class="fas fa-clock"></i>Processing Time</h3>
+            <p>Account deletion is processed immediately upon confirmation. You will be automatically logged out of the app, and your account data will be permanently removed from our servers within minutes.</p>
+          </div>
+        </section>
+
+        <!-- What Happens After Deletion -->
+        <section class="content-section">
+          <h2><i class="fas fa-database"></i>What Happens After Deletion</h2>
+          <p>When you delete your MAKstudy account, the following actions are taken immediately and permanently:</p>
+          
+          <h3>Data Permanently Deleted:</h3>
+          <ul>
+            <li>
+              <strong>Personal Information:</strong> Your name, email address, and any profile information stored in our Firebase authentication system will be completely removed.
+            </li>
+            <li>
+              <strong>Account Credentials:</strong> Your login credentials, including encrypted passwords, will be permanently deleted from our authentication database.
+            </li>
+            <li>
+              <strong>App Usage Data:</strong> Any preferences, settings, bookmarks, or progress tracking data associated with your account will be eliminated.
+            </li>
+            <li>
+              <strong>Communication History:</strong> Any support tickets, feedback, or communication history linked to your account will be removed from our systems.
+            </li>
+          </ul>
+
+          <h3>Immediate Effects:</h3>
+          <ul>
+            <li>
+              <strong>Login Access Removed:</strong> You will immediately lose access to your account and cannot log in using your previous credentials.
+            </li>
+            <li>
+              <strong>App Data Reset:</strong> If you have the app installed, all personalized content and saved data will be cleared.
+            </li>
+            <li>
+              <strong>Email Notifications Stopped:</strong> You will no longer receive any emails or notifications from MAKstudy.
+            </li>
+          </ul>
+
+          <div class="warning-box">
+            <h3><i class="fas fa-exclamation-triangle"></i>Important: Irreversible Process</h3>
+            <p>Account deletion is permanent and irreversible. Once deleted, your account cannot be recovered, restored, or reactivated. You would need to create a completely new account if you decide to use MAKstudy again in the future, starting with no previous data or preferences.</p>
+          </div>
+        </section>
+
+        <!-- Security & Verification -->
+        <section class="content-section">
+          <h2><i class="fas fa-shield-alt"></i>Security & Verification</h2>
+          <p>We take account security seriously and have implemented multiple verification steps to ensure that only you can delete your account:</p>
+          
+          <h3>Password Re-verification Required:</h3>
+          <p>Before your account can be deleted, you must re-enter your current password. This security measure ensures that:</p>
+          <ul>
+            <li>Only the account owner can initiate the deletion process</li>
+            <li>Accidental deletions are prevented</li>
+            <li>Unauthorized access attempts are blocked</li>
+            <li>Your account remains secure even if someone else has access to your device</li>
+          </ul>
+
+          <h3>Confirmation Process:</h3>
+          <p>After password verification, you will be presented with a clear summary of what will be deleted and asked to confirm your decision. This two-step confirmation process helps prevent accidental account deletions and ensures you understand the permanent nature of this action.</p>
+
+          <h3>Immediate Processing:</h3>
+          <p>Once you confirm the deletion, the process begins immediately and cannot be stopped or reversed. This ensures that your data is removed promptly and completely, maintaining your privacy and data protection rights.</p>
+
+          <div class="info-box">
+            <h3><i class="fas fa-user-check"></i>Authentication Security</h3>
+            <p>Our account deletion process uses the same high-security standards as our login system, including encrypted password verification and secure Firebase authentication protocols to protect your account throughout the deletion process.</p>
+          </div>
+        </section>
+
+        <!-- Need Help Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-question-circle"></i>Need Help?</h2>
+          <p>If you encounter any issues with the account deletion process, have questions about what data is deleted, or need assistance with any other aspect of account management, our support team is here to help.</p>
+          
+          <h3>Before Deleting Your Account:</h3>
+          <p>Consider reaching out to us if you're experiencing issues that might be resolved without deleting your account. Common concerns we can help with include:</p>
+          <ul>
+            <li>Technical problems with the app or website</li>
+            <li>Questions about privacy settings or data usage</li>
+            <li>Issues with account access or password recovery</li>
+            <li>Concerns about notifications or email preferences</li>
+          </ul>
+
+          <h3>Deletion Support:</h3>
+          <p>If you need assistance with the account deletion process itself, encounter errors, or have questions about what happens to your data, please contact our support team before proceeding.</p>
+
+          <div class="contact-info">
+            <h3><i class="fas fa-envelope"></i>Contact Our Support Team</h3>
+            <p>Our dedicated support team is available to assist you with any questions or concerns regarding account deletion.</p>
+            <a href="mailto:makstudy.official@gmail.com" class="contact-email">
+              <i class="fas fa-envelope"></i>
+              makstudy.official@gmail.com
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">We typically respond to support requests within 24-48 hours during business days.</p>
+          </div>
+
+          <h3>Alternative Solutions:</h3>
+          <p>Before permanently deleting your account, consider these alternatives that might address your concerns:</p>
+          <ul>
+            <li><strong>Temporary Deactivation:</strong> Contact us to temporarily disable your account while keeping your data safe for future reactivation</li>
+            <li><strong>Privacy Settings:</strong> Adjust your privacy and notification settings to limit data usage and communications</li>
+            <li><strong>Data Export:</strong> Request a copy of your account data before deletion if you want to keep any personal information</li>
+          </ul>
+
+          <div class="warning-box">
+            <h3><i class="fas fa-clock"></i>Act Quickly After Deletion</h3>
+            <p>If you accidentally delete your account, contact us immediately at makstudy.official@gmail.com. While we cannot restore deleted accounts, we may be able to assist you in certain circumstances if you reach out within a very short timeframe after deletion.</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>MAKstudy</h3>
+          <p>Free educational resources for MAKAUT engineering students. Access notes, lectures, previous year questions, and study materials.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="about.html">About Developer</a>
+          <a href="delete-account.html">Delete Account</a>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <a href="mailto:makstudy.official@gmail.com">Contact Support</a>
+          <a href="mailto:playconsoleanish@gmail.com">Developer Email</a>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <p>MAKstudy is an unofficial educational app created by Anish Dandapat.</p>
+          <p>Not affiliated with Maulana Abul Kalam Azad University of Technology.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 MAKstudy. Developed with ❤️ by Anish Dandapat for MAKAUT students.</p>
+        <p>All educational content is provided for academic purposes only.</p>
+      </div>
+    </footer>
+
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('active');
+      }
+      
+      function closeSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.remove('active');
+      }
+      
+      // Auto close sidebar when clicking on content
+      document.addEventListener('DOMContentLoaded', function() {
+        const mainContent = document.querySelector('.main-content');
+        if (mainContent) {
+          mainContent.addEventListener('click', closeSidebar);
+        }
+      });
+    </script>
+  </body>
+</html>

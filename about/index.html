@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Developer - MAKstudy | Educational App for MAKAUT Students</title>
+    <meta name="description" content="Meet Anish Dandapat, the developer behind MAKstudy. A passionate mobile app developer creating educational solutions for MAKAUT engineering students.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="About Developer - MAKstudy">
+    <meta property="og:description" content="Meet Anish Dandapat, the developer behind MAKstudy educational app for MAKAUT students.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MAKstudy">
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Belgrano&display=swap" rel="stylesheet">
+    
+    <!-- Basic favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/logo.png">
+
+    <!-- Optional: Apple devices -->
+    <link rel="apple-touch-icon" href="/logo.png">
+
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background-color: #f9fafb;
+        color: #1e293b;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+      
+      .app-header {
+        background: white;
+        padding: 1rem;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      
+      .app-logo {
+        font-size: 2rem;
+        font-weight: bold;
+        display: flex;
+        align-items: baseline;
+      }
+      
+      .logo-mak {
+        color: #05295e;
+        font-family: 'League Spartan', sans-serif;
+        font-weight: 700;
+      }
+      
+      .logo-study {
+        color: #ff7a29;
+        font-family: 'Belgrano', serif;
+        font-weight: 400;
+      }
+      
+      .hamburger-menu {
+        font-size: 1.5rem;
+        color: #64748b;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.2s;
+      }
+      
+      .hamburger-menu:hover {
+        color: #05295e;
+      }
+      
+      .sidebar {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      
+      .sidebar.active {
+        max-height: 300px;
+      }
+      
+      .sidebar-nav {
+        padding: 1rem 0;
+      }
+      
+      .sidebar-nav a {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        color: #64748b;
+        text-decoration: none;
+        transition: all 0.2s;
+        border-left: 3px solid transparent;
+      }
+      
+      .sidebar-nav a:hover {
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border-left-color: #05295e;
+      }
+      
+      .sidebar-nav a.active {
+        background-color: #eff6ff;
+        color: #05295e;
+        border-left-color: #05295e;
+        font-weight: 500;
+      }
+      
+      .sidebar-nav a i {
+        margin-right: 0.75rem;
+        width: 1.25rem;
+        text-align: center;
+      }
+      
+      .main-content {
+        position: relative;
+      }
+      
+      .hero-section {
+        background: linear-gradient(135deg, #05295e 0%, #0369a1 100%);
+        color: white;
+        padding: 4rem 1rem;
+        text-align: center;
+      }
+      
+      .hero-title {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: #cbd5e1;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      
+      .about-section {
+        padding: 3rem 0;
+        background: white;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #0f172a;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      
+      .section-subtitle {
+        font-size: 1.125rem;
+        color: #64748b;
+        text-align: center;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .profile-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: start;
+        margin-bottom: 3rem;
+      }
+      
+      .profile-card {
+        background: #f8fafc;
+        padding: 2rem;
+        border-radius: 1rem;
+        border: 1px solid #e2e8f0;
+      }
+      
+      .profile-info h3 {
+        font-size: 1.5rem;
+        color: #05295e;
+        margin-bottom: 0.5rem;
+      }
+      
+      .profile-info p {
+        color: #64748b;
+        margin-bottom: 1rem;
+      }
+      
+      .profile-details {
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        border: 1px solid #e2e8f0;
+      }
+      
+      .journey-section {
+        padding: 3rem 0;
+        background: #f8fafc;
+      }
+      
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+      
+      .skill-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        border: 1px solid #e2e8f0;
+        text-align: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .skill-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      
+      .skill-icon {
+        font-size: 2.5rem;
+        color: #05295e;
+        margin-bottom: 1rem;
+      }
+      
+      .skill-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #0f172a;
+        margin-bottom: 0.5rem;
+      }
+      
+      .projects-section {
+        padding: 3rem 0;
+        background: white;
+      }
+      
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      
+      .project-card {
+        background: #f8fafc;
+        padding: 2rem;
+        border-radius: 1rem;
+        border: 1px solid #e2e8f0;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      
+      .project-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      
+      .project-icon {
+        font-size: 2rem;
+        color: #ff7a29;
+        margin-bottom: 1rem;
+      }
+      
+      .project-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #0f172a;
+        margin-bottom: 1rem;
+      }
+      
+      .contact-section {
+        padding: 3rem 0;
+        background: #05295e;
+        color: white;
+        text-align: center;
+      }
+      
+      .contact-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+      
+      .contact-subtitle {
+        font-size: 1.125rem;
+        color: #cbd5e1;
+        margin-bottom: 2rem;
+      }
+      
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      
+      .social-link:hover {
+        background: #ff7a29;
+        transform: translateY(-2px);
+      }
+      
+      .footer {
+        background: #0f172a;
+        color: #94a3b8;
+        text-align: center;
+        padding: 2rem 0;
+      }
+      
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+        
+        .profile-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        
+        .section-title {
+          font-size: 2rem;
+        }
+        
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .social-links {
+          flex-wrap: wrap;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="app-header">
+      <div class="app-logo">
+        <span class="logo-mak">MAK</span><span class="logo-study">study</span>
+      </div>
+      <div class="hamburger-menu" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+      </div>
+      
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <a href="/" class="active">
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+          <a href="/terms/">
+            <i class="fas fa-file-contract"></i>
+            Terms & Conditions
+          </a>
+          <a href="/privacy/">
+            <i class="fas fa-shield-alt"></i>
+            Privacy Policy
+          </a>
+          <a href="/delete-account/">
+            <i class="fa-solid fa-trash"></i>
+            Delete-account
+          </a>
+          <a href="/about/">
+            <i class="fas fa-user"></i>
+            About Developer
+          </a>
+        </nav>
+      </aside>
+    </div>
+
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container">
+          <h1 class="hero-title">About the Developer</h1>
+          <p class="hero-subtitle">Meet Anish Dandapat, the passionate developer behind MAKstudy</p>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <div class="container">
+          <div class="profile-grid">
+            <div class="profile-card">
+              <div class="profile-info">
+                <h3>Anish Dandapat</h3>
+                <p><i class="fas fa-map-marker-alt"></i> West Bengal, India</p>
+                <p><i class="fas fa-graduation-cap"></i> 2nd Year Mechanical Engineering Student</p>
+                <p><i class="fas fa-university"></i> Ramakrishna Mahato Government Engineering College, Purulia</p>
+                <p><i class="fas fa-code"></i> Solo Developer with 1.3+ years experience</p>
+              </div>
+            </div>
+            
+            <div class="profile-details">
+              <h3 style="color: #05295e; margin-bottom: 1rem;">My Journey</h3>
+              <p>I started my development journey 1.3 years ago with Android app development using Kotlin and Java. As I grew as a developer, I transitioned to Flutter to build cross-platform applications for Android, iOS, and other platforms.</p>
+              <p>Currently, I'm working on several exciting projects, with MAKstudy being one of my flagship applications. I'm now interested in exploring React Native to build even higher quality applications.</p>
+              <p>As a solo developer, my long-term vision is to build a team for bigger projects and eventually create a startup that can make a meaningful impact in the educational technology space.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="journey-section">
+        <div class="container">
+          <h2 class="section-title">Technical Expertise</h2>
+          <p class="section-subtitle">Technologies and platforms I specialize in</p>
+          
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-android"></i>
+              </div>
+              <h3 class="skill-title">Android Development</h3>
+              <p>Kotlin & Java for native Android applications</p>
+            </div>
+            
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h3 class="skill-title">Flutter</h3>
+              <p>Cross-platform mobile app development</p>
+            </div>
+            
+            <div class="skill-card">
+              <div class="skill-icon">
+                <i class="fab fa-react"></i>
+              </div>
+              <h3 class="skill-title">React Native</h3>
+              <p>Future focus for high-quality app development</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="projects-section">
+        <div class="container">
+          <h2 class="section-title">My Projects</h2>
+          <p class="section-subtitle">Some of the applications I've built</p>
+          
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3 class="project-title">MAKstudy</h3>
+              <p>Educational app for MAKAUT students providing free study resources, notes, lectures, organizer, and books. Developed over 3 months to help students with their studies and exams.</p>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <h3 class="project-title">TicTacToe Gaming App</h3>
+              <p>Interactive gaming application with smooth gameplay and engaging user interface.</p>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="fas fa-dice"></i>
+              </div>
+              <h3 class="project-title">Ludo Game</h3>
+              <p>Classic board game implementation with multiplayer support and intuitive controls.</p>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="fas fa-play-circle"></i>
+              </div>
+              <h3 class="project-title">Video Player</h3>
+              <p>Custom video player application with advanced playback features and user-friendly interface.</p>
+            </div>
+            
+            <div class="project-card">
+              <div class="project-icon">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <h3 class="project-title">PDF Reader</h3>
+              <p>Document reader application with smooth navigation and reading experience optimization.</p>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; padding: 2rem; border-radius: 1rem; border: 1px solid #e2e8f0; margin-top: 2rem;">
+            <h3 style="color: #05295e; margin-bottom: 1rem;">Development Challenges & Growth</h3>
+            <p>During my development journey, I've faced and overcome various challenges including UI glitches, color combination issues, color history problems, and logic mistakes. Each challenge has made me a better developer and taught me the importance of thorough testing and user experience design.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact-section">
+        <div class="container">
+          <h2 class="contact-title">Let's Connect</h2>
+          <p class="contact-subtitle">I'm always excited to connect with fellow developers and MAKAUT students</p>
+          
+          <div class="social-links">
+            <a href="https://github.com/krishnagoraioficial" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/krishna-gorai/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/krishnagoraioficial" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:playconsoleanish@gmail.com" class="social-link" title="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+          
+          <p style="font-size: 1.125rem; margin-bottom: 1rem;">
+            <strong>Email:</strong> playconsoleanish@gmail.com
+          </p>
+          <p style="color: #cbd5e1;">
+            Feel free to reach out for collaborations, project discussions, or just to say hello!
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 MAKstudy. Developed with ❤️ by Anish Dandapat for MAKAUT students.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.875rem;">
+          Unofficial educational app. Not affiliated with Maulana Abul Kalam Azad University of Technology.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('active');
+      }
+      
+      function closeSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.remove('active');
+      }
+      
+      // Auto close sidebar when clicking on content
+      document.addEventListener('DOMContentLoaded', function() {
+        const mainContent = document.querySelector('.main-content');
+        if (mainContent) {
+          mainContent.addEventListener('click', closeSidebar);
+        }
+      });
+    </script>
+  </body>
+</html>
